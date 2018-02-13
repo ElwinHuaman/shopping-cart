@@ -10,11 +10,20 @@
 </template>
 <script>
 import {productsRef} from '../firebase';
+import store from '@/store/index'
 
 export default {
-  firebase: {
-      products: productsRef
-  }
+    firebase: {
+        products: productsRef
+    },
+    computed:{
+        products (){
+            return store.state.products
+        }
+    },
+    created (){
+        store.state.products = products
+    }
 }
 </script>
 
