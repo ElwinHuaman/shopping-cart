@@ -6,9 +6,11 @@
     <button @click="pressed">Increment</button>    
     <h1>Product List</h1>
       <ul>
-        <li v-for="product of products"
-            v-bind:key="product['.key']">{{product.title}} - {{product.id}} - {{product.price}}, {{product.inventory}}
-        <button @click="addExistence">Add</button>
+        <li> 
+          <ul v-for="product of products"
+            v-bind:key="product['.key']"> <p> {{product.title}} - {{product.id}} - {{product.price}}, {{product.inventory}}
+            <button @click="addExistence(product['.key'])">Add</button></p>
+          </ul>
         </li>          
       </ul>
   </div>  
@@ -41,8 +43,8 @@ export default {
       pressed(){
           ex.dispatch('increment', 20);
       },
-      addExistence(){
-          
+      addExistence(key){
+          ex.dispatch('addProductExistence', 1);
       }
   },
   firebase: {

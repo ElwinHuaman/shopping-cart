@@ -25,7 +25,7 @@ export default new Vuex.Store({
         increment(state, payload){
             state.count+=payload;
         },
-        add(state, payload){
+        addProductExistence(state, payload){
             
         }
     },
